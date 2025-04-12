@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<VBox fx:id="fullStage" alignment="CENTER" prefHeight="700.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.NewsAggregatorController">
+    <children>
+        <AnchorPane id="mainAnchorPance" prefWidth="703.0" VBox.vgrow="ALWAYS">
+            <children>
+            <Label fx:id="sideBarButton" alignment="CENTER_RIGHT" layoutX="15.0" layoutY="41.0" onMouseEntered="#expandSideBar" prefHeight="21.0" prefWidth="64.0" text="MENU" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="41.0">
+               <font>
+                  <Font name="Bell MT Bold" size="15.0" />
+               </font>
+            </Label>
+                <Label id="titlelabel" fx:id="titlelabel" alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="31.0" prefHeight="17.0" prefWidth="679.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="31.0" />
+                <ImageView id="sideBarButton" fx:id="sideBarButton" fitHeight="20.0" fitWidth="20.0" layoutX="8.0" layoutY="42.0" onMouseEntered="#expandSideBar" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@AppIcons/icons8-menu-50.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <BorderPane layoutX="3.0" layoutY="64.0" prefHeight="593.0" prefWidth="1000.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="64.0">
+                    <center>
+                        <SplitPane fx:id="splitPane" dividerPositions="0.23" prefHeight="604.0" prefWidth="970.0" BorderPane.alignment="CENTER">
+                            <items>
+                                <AnchorPane prefHeight="594.0" prefWidth="403.0">
+                                    <children>
+                                        <TextField fx:id="searchBar" layoutX="2.0" layoutY="5.0" onAction="#initialize" prefHeight="30.0" prefWidth="240.0" promptText="Search News" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="3.0">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                            </cursor>
+                                        </TextField>
+                                        <JFXListView fx:id="newsListView" layoutX="60.0" layoutY="40.0" onEditStart="#initialize" prefHeight="551.0" prefWidth="229.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                    </children>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="595.0" prefWidth="480.0">
+                                    <children>
+                                        <TabPane fx:id="tabPane" layoutX="-1.0" layoutY="-2.0" prefHeight="593.0" prefWidth="744.0" tabMinHeight="25.0" tabMinWidth="58.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-2.0">
+                                            <tabs>
+                                                <Tab fx:id="homeTab" closable="false" text="Home">
+                                                    <content>
+                                                        <AnchorPane />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="localTab" closable="false" text="Local">
+                                                    <content>
+                                                        <AnchorPane />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="businessTab" text="Business">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="technologyTab" text="Technology">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="entertainmentTab" text="Entertainment">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="sportsTab" text="Sports">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="healthTab" text="Health">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="scienceTab" text="Science">
+                                                    <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="articleTab" closable="false" text="Article">
+                                                    <content>
+                                                        <AnchorPane>
+                                             <children>
+                                                <StackPane prefHeight="581.0" prefWidth="873.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <children>
+                                                      <WebView fx:id="webView" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="CENTER">
+                                                         <StackPane.margin>
+                                                            <Insets left="3.0" right="3.0" />
+                                                         </StackPane.margin></WebView>
+                                                      <ProgressIndicator fx:id="progressIndicator" StackPane.alignment="CENTER" />
+                                                   </children>
+                                                </StackPane>
+                                             </children></AnchorPane>
+                                                    </content>
+                                                </Tab>
+                                                <Tab fx:id="bookmarksTab" closable="false" text="Bookmarks">
+                                                    <content>
+                                                        <AnchorPane />
+                                                    </content>
+                                                </Tab>
+                                            </tabs>
+                                            <opaqueInsets>
+                                                <Insets />
+                                            </opaqueInsets>
+                                            <cursor>
+                                                <Cursor fx:constant="DEFAULT" />
+                                            </cursor>
+                                        </TabPane>
+                                    </children>
+                                    <padding>
+                                        <Insets right="5.0" />
+                                    </padding>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </AnchorPane>
+                            </items>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </SplitPane>
+                    </center>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </BorderPane>
+                <Label fx:id="statusLabel" layoutX="2.0" layoutY="661.0" prefHeight="17.0" prefWidth="561.0" text="Label" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="153.0">
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" layoutX="819.0" layoutY="24.0" prefHeight="37.0" prefWidth="169.0" spacing="5.0" AnchorPane.rightAnchor="5.0">
+                    <children>
+                        <JFXButton fx:id="backButton" text="←" HBox.hgrow="ALWAYS" />
+                        <JFXButton fx:id="reloadButton" text="⟳" HBox.hgrow="ALWAYS" />
+                        <JFXButton fx:id="forwardButton" text="→" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER">
+                            <HBox.margin>
+                                <Insets left="8.0" />
+                            </HBox.margin>
+                            <children>
+                                <JFXButton fx:id="refreshButton" prefHeight="27.0" text="Refresh" HBox.hgrow="ALWAYS" />
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox id="windowsOptionButtons" alignment="CENTER_RIGHT" layoutX="875.0" layoutY="-2.0" prefHeight="27.0" prefWidth="117.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <HBox id="minimize" alignment="CENTER" onMouseClicked="#minimizeButton" prefHeight="27.0" prefWidth="59.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <ImageView id="minimize" fx:id="minimize" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-minus-24.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox id="maximize" alignment="CENTER" onMouseClicked="#maximizeButton" prefHeight="27.0" prefWidth="59.0">
+                            <children>
+                                <ImageView id="maximize" fx:id="maximize" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-square-24.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                        <HBox id="close" alignment="CENTER" onMouseClicked="#closeButton" prefHeight="27.0" prefWidth="59.0">
+                            <children>
+                                <ImageView id="close" fx:id="close" fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-close-384.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <VBox fx:id="sideBar" layoutX="1.0" onContextMenuRequested="#expandSideBar" onMouseExited="#collapseSideBar" prefHeight="676.0" prefWidth="221.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <AnchorPane fx:id="anch" prefHeight="652.0" prefWidth="144.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <VBox layoutY="125.0" spacing="8.0">
+                                    <children>
+                                        <Label id="menuElements" fx:id="themeStatus" alignment="CENTER" onMouseClicked="#switchThemes" prefHeight="25.0" prefWidth="221.0" text="Dark Mode">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="menuElements" fx:id="themeStatus1" alignment="CENTER" onMouseClicked="#copyUrlToClipboard" prefHeight="25.0" prefWidth="221.0" text="Share">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <Label id="menuElements" fx:id="setPreferences" alignment="CENTER" onMouseClicked="#setPrefsVisibility" prefHeight="25.0" prefWidth="221.0" text="       Customize Home Feed">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER" layoutY="463.0" prefHeight="97.0" prefWidth="221.0" spacing="10.0" AnchorPane.bottomAnchor="96.0">
+                                    <children>
+                                        <Label id="menuElements" alignment="CENTER" onMouseClicked="#addToBookmarks" prefHeight="25.0" prefWidth="233.0" text="Bookmark Article">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox id="menuElements" alignment="CENTER">
+                                            <children>
+                                                <MenuButton fx:id="reopenMenuButton" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="123.0" text="Open Tabs" />
+                                            </children>
+                                        </HBox>
+                                        <HBox id="menuElements" alignment="CENTER">
+                                            <children>
+                                                <MenuButton alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="  Help">
+                                                    <items>
+                                                        <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                                                    </items>
+                                                </MenuButton>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <ImageView id="bookmarkIcon" fitHeight="25.0" fitWidth="30.0" layoutX="19.0" layoutY="483.0" onMouseClicked="#addToBookmarks" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="168.0">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-bookmark-256.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="helpIcon" fitHeight="26.0" fitWidth="25.0" layoutX="19.0" layoutY="555.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="96.0">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-help-32.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="themeIcon" fitHeight="28.0" fitWidth="28.0" layoutX="20.0" layoutY="124.0" onMouseClicked="#switchThemes" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-night-mode-78.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="shareIcon" fitHeight="22.0" fitWidth="25.0" layoutX="22.0" layoutY="160.0" onMouseClicked="#copyUrlToClipboard" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-share-48.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="reOpenTabs" fitHeight="25.0" fitWidth="24.0" layoutX="19.0" layoutY="519.0" pickOnBounds="true" AnchorPane.bottomAnchor="132.0">
+                                    <image>
+                                        <Image url="@AppIcons/icons8-tab-96.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                                <ImageView id="preferences" fitHeight="28.0" fitWidth="28.0" layoutX="19.0" layoutY="189.0" onMouseClicked="#setPrefsVisibility" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@AppIcons/image.png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="DEFAULT" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+                <ImageView id="newsPaper" fitHeight="35.0" fitWidth="35.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@AppIcons/icons8-newspaper-96.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <Label layoutX="44.0" layoutY="9.0" prefHeight="17.0" prefWidth="138.0" text="Daily Roundup">
+                    <font>
+                        <Font name="Bell MT Bold" size="18.0" />
+                    </font>
+                </Label>
+                <ProgressBar id="progressBar" fx:id="progressBar" layoutX="917.0" layoutY="662.0" prefHeight="15.0" prefWidth="78.0" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="5.0" />
+                <VBox fx:id="mainContainer" alignment="CENTER" layoutX="441.0" layoutY="219.0" minHeight="281.0" minWidth="398.0" prefHeight="281.0" prefWidth="398.0" spacing="10.0" styleClass="root" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="219.0">
+                    <children>
+                        <AnchorPane id="prefBox" prefHeight="296.0" prefWidth="398.0">
+                            <children>
+                                <Label alignment="CENTER" layoutX="4.0" prefHeight="35.0" prefWidth="398.0" styleClass="preflabels" text="Type in Keywords to Customize Your Home Feed">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Label>
+                                <Label alignment="CENTER" layoutX="4.0" layoutY="34.0" prefHeight="24.0" prefWidth="398.0" styleClass="preflabels" text="You Can Enter up to 6 keywords. eg. football, crypto, etc.">
+                                    <font>
+                                        <Font size="13.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="5.0" />
+                                    </padding>
+                                </Label>
+                                <GridPane fx:id="keywordGrid" alignment="CENTER" hgap="10.0" layoutX="13.0" layoutY="76.0" prefHeight="134.0" prefWidth="381.0" vgap="10.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                </GridPane>
+                                <HBox alignment="CENTER" layoutX="110.0" layoutY="221.0" prefHeight="37.0" prefWidth="187.0" spacing="8.0">
+                                    <children>
+                                        <JFXButton fx:id="clearButton" text="Clear">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </JFXButton>
+                                        <JFXButton fx:id="saveButton" text="Save">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </JFXButton>
+                                        <JFXButton fx:id="closeButton" text="Close">
+                                            <font>
+                                                <Font size="13.0" />
+                                            </font>
+                                        </JFXButton>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" top="5.0" />
+                                    </padding>
+                                </HBox>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

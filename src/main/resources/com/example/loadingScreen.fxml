@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.LoadingScreenController">
+        <ImageView fx:id="backgroundPic" fitHeight="681.0" fitWidth="1000.0">
+            <image>
+                <Image url="@New%20York%20City.jpg" />
+            </image>
+        </ImageView>
+        <ProgressBar fx:id="loadingBar" layoutX="203.0" layoutY="388.0" prefHeight="13.0" prefWidth="606.0" progress="0.0">
+            <effect>
+                <DropShadow />
+            </effect>
+        </ProgressBar>
+        <Label fx:id="loadingMessage" alignment="CENTER" layoutX="350.0" layoutY="385.0" prefHeight="17.0" prefWidth="300.0" text="Loading, Please Wait..." wrapText="true">
+            <effect>
+                <ColorAdjust />
+            </effect>
+      <font>
+         <Font size="10.0" />
+      </font>
+        </Label>
+  </AnchorPane>

@@ -1,0 +1,273 @@
+/* Styles for the root element */
+.root {
+  -fx-accent: #4696ff; /* A blue accent color for light mode */
+  -fx-focus-color: -fx-accent;
+  -fx-base: #f0f0f0; /* A light gray base color */
+  -fx-control-inner-background: derive(
+    -fx-base,
+    -15%
+  ); /* Slightly darker for controls */
+  -fx-control-inner-background-alt: -fx-control-inner-background;
+  -fx-font-size: 12px;
+}
+#mainAnchorPance {
+  -fx-background-color: rgb(204, 204, 204);
+}
+/* Styles for labels */
+.label {
+  -fx-text-fill: #333333; /* Dark gray text for better contrast */
+}
+
+/* Styles for text fields */
+.text-field {
+  -fx-prompt-text-fill: #555555; /* Medium gray for prompt text */
+}
+
+/* Styles for buttons */
+.button {
+  -fx-focus-traversable: false;
+  -fx-text-fill: #ffffff; /* White text for better contrast */
+  -fx-background-color: #0068ad; /* Blue background for buttons */
+}
+
+/* Styles for buttons on hover */
+.button:hover {
+  -fx-text-fill: #ffffff;
+  -fx-background-color: #047dd3; /* Darker blue on hover */
+}
+
+/* Styles for separators */
+.separator *.line {
+  -fx-background-color: #c0c0c0; /* Light gray for separators */
+  -fx-border-style: solid;
+  -fx-border-width: 1px;
+}
+
+/* Styles for scroll bars */
+.scroll-bar {
+  -fx-background-color: derive(
+    -fx-base,
+    -30%
+  ); /* Darker gray for scroll bars */
+}
+
+/* Styles for default buttons */
+.button:default {
+  -fx-base: -fx-accent;
+}
+
+/* Styles for list cells (even and odd) */
+.list-cell:even,
+.list-cell:odd {
+  -fx-control-inner-background: derive(
+    -fx-base,
+    -10%
+  ); /* Slightly darker rows for contrast */
+}
+
+/* Styles for empty list cells */
+.list-cell:empty {
+  -fx-background-color: transparent;
+}
+
+/* Styles for list cells */
+.list-cell {
+  -fx-border-color: #e0e0e0; /* Light gray borders for list cells */
+  -fx-table-cell-border-color: #e0e0e0;
+  -fx-padding: 8px 3px;
+}
+/* Styles for list cells on hover */
+.list-view .list-cell:hover {
+  -fx-background-color: #686666; /* Dark gray background for list cells on hover */
+  -fx-text-fill: #ffffff; /* White text for list cells on hover */
+  -fx-padding: 8px 3px;
+}
+
+/* Styles for the news list view */
+#newsListView {
+  -fx-font-size: 13px; /* Sets the font size for the news list view */
+  -fx-focus-traversable: false;
+  /* set background image */
+  /* -fx-background-image: url("daily-roundup-high-resolution-logo.jpeg"); */
+  /* -fx-background-image: url("AppIcons/icons8-bookmark-208.png"); */
+  /* -fx-background-size: 479px 221px;  */
+  /* -fx-background-repeat: no-repeat; */
+}
+
+.bookmark-button {
+  -fx-text-fill: #000000;
+  -fx-font-size: larger;
+  -fx-font-weight: bolder;
+  -fx-background-color: transparent;
+
+}
+.bookmark-button:hover {
+  -fx-text-fill: #000000;
+  -fx-font-size: larger;
+  -fx-font-weight: bolder;
+  -fx-background-color: transparent;
+}
+
+#sideBar {
+  -fx-background-color: #f0f0f0;
+}
+#menuElements {
+  -fx-background-size: 15px;
+  -fx-font-size: 13px;
+}
+#menuElements:hover {
+    -fx-background-color: rgb(201, 201, 201);
+    -fx-font-size: 13px;
+    -fx-border-width: 0px 0px 0px 3.5px;
+    -fx-border-style: solid;
+    -fx-border-color: #0078d4;
+}
+#progressBar {
+  /* Remove the inherited background color */
+  -fx-background-color: transparent;
+  /* Set the desired color for the progress bar */
+  -fx-accent: #004e81;
+  -fx-color: #004b7e;
+}
+#maximize,
+#close,
+#minimize {
+  -fx-background-color: transparent;
+}
+#maximize:hover,
+#minimize:hover {
+  -fx-background-color: rgb(235, 235, 235);
+}
+#close:hover {
+  -fx-background-color: #ff3a4a;
+}
+
+
+/* ImageView Elements For Light Theme */
+/* Sidebar menu button */
+#sideBarButton {
+    -fx-image: url("AppIcons/icons8-menu-50.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 20;
+}
+
+/* Minimize button */
+#minimize {
+    -fx-image: url("AppIcons/icons8-minus-24.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Maximize button */
+#maximize {
+    -fx-image: url("AppIcons/icons8-square-24.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Close button */
+#close {
+    -fx-image: url("AppIcons/icons8-close-384.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Help icon */
+#helpIcon {
+    -fx-image: url("AppIcons/icons8-help-32.png");
+    -fx-fit-width: 25;
+    -fx-fit-height: 26;
+}
+
+/* Dark mode icon */
+#themeIcon {
+    -fx-image: url("AppIcons/icons8-night-mode-78.png");
+    -fx-fit-width: 28;
+    -fx-fit-height: 28;
+}
+
+/* Bookmark icon */
+#bookmarkIcon {
+    -fx-image: url("AppIcons/icons8-bookmark-256.png");
+    -fx-fit-width: 30;
+    -fx-fit-height: 25;
+}
+
+/* Share icon */
+#shareIcon {
+    -fx-image: url("AppIcons/icons8-share-48.png");
+    -fx-fit-width: 25;
+    -fx-fit-height: 22;
+}
+/* Reopen Tabs Icon */
+#reOpenTabs {
+    -fx-image: url("AppIcons/icons8-tab-96.png");
+    -fx-fit-width: 24;
+    -fx-fit-height: 25;
+}
+
+/* Newspaper icon */
+#newsPaper {
+    -fx-image: url("AppIcons/icons8-newspaper-96.png");
+    -fx-fit-width: 35;
+    -fx-fit-height: 35;
+}
+
+/* preferences icon */
+#preferences {
+    -fx-image: url("AppIcons/image.png");
+    -fx-fit-width: 28;
+    -fx-fit-height: 28;
+}
+
+
+#titlelabel{
+  -fx-font-size: 13;
+  -fx-background-color: rgb(204, 204, 204);
+  -fx-border-width: 1.5px;
+  -fx-border-color: -fx-base;
+  -fx-border-radius: 10%;
+  -fx-padding: 1px;
+}
+
+
+/* General article box style */
+.article-box {
+  -fx-background-color: white;
+  -fx-border-color: #ddd;
+  -fx-border-radius: 5px;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 10, 0, 0, 5);
+}
+
+/* Hover effect for article box */
+.article-box-hover {
+  -fx-background-color: #f5f5f5;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0, 0, 10);
+}
+
+/* General title label style */
+.title-label {
+  -fx-font-weight: bold;
+  -fx-text-fill: #333;
+  -fx-font-size: 13px;
+}
+
+/* Style for head article titles */
+.head-article {
+  -fx-font-size: 15px;
+}
+
+/* .date-label{
+  -fx-text-align: left;
+} */
+
+#prefBox{
+  -fx-background-color:#e9e9e9;
+  -fx-border-width: 2px;
+  -fx-border-color: -fx-base;
+}
+.preflabels{
+  -fx-background-color: #007acc;
+  -fx-text-fill: #ffffff;
+}

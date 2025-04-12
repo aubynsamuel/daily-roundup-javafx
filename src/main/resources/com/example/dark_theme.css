@@ -1,0 +1,275 @@
+/* Styles for the root element */
+.root { 
+    /* Sets the accent color for the application */
+    -fx-accent: #0078d4;
+    /* Sets the focus color to match the accent color */
+    -fx-focus-color: -fx-accent;
+    /* Sets the base color for the application */
+    -fx-base: #1f1f1f;
+    /* Sets the background color for control elements */
+    -fx-control-inner-background: derive(-fx-base, 35%);
+    /* Sets the alternate background color for control elements */
+    -fx-control-inner-background-alt: -fx-control-inner-background ;
+    /* Sets the default font size for the application */
+    -fx-font-size: 12px;
+}
+#mainAnchorPance{
+    -fx-background-color: #3b3b3b;
+}
+
+/* Styles for labels */
+.label{
+    /* Sets the text color for labels to white */
+    -fx-text-fill: rgb(255, 255, 255);
+}
+
+/* Styles for text fields */
+.text-field {
+    /* Sets the prompt text color for text fields to white */
+    -fx-prompt-text-fill: rgb(230, 230, 230);
+    -fx-text-fill: #ffffff
+}
+
+/* Styles for buttons */
+.button{
+    /* Disables focus traversal for buttons */
+    -fx-focus-traversable: false;
+    -fx-background-color: #424242;
+    -fx-text-fill: rgb(245, 245, 245);
+}
+
+/* Styles for buttons on hover */
+.button:hover{
+    -fx-background-color:#7e7e7e;
+}
+
+/* Styles for separators */
+.separator *.line { 
+    /* Sets the background color for separator lines */
+    -fx-background-color: #2b2b2b;
+    /* Sets the border style for separator lines */
+    -fx-border-style: solid;
+    /* Sets the border width for separator lines */
+    -fx-border-width: 1px;
+}
+
+/* Styles for scroll bars */
+.scroll-bar{
+    /* Sets the background color for scroll bars */
+    -fx-background-color: derive(-fx-base,45%)
+}
+
+/* Styles for default buttons */
+/* .button:default {
+    /* Sets the base color for default buttons to the accent color */
+    /* -fx-base: -fx-accent ; */
+/* }  */ 
+
+/* Styles for list cells (even and odd) */
+.list-cell:even,
+.list-cell:odd{    
+    /* Sets the background color for list cells */
+    -fx-control-inner-background: derive(-fx-base, 25%);
+}
+
+/* Styles for list cells */
+.list-cell{
+    /* Removes the border color for list cells */
+    -fx-border-color: transparent;
+    /* Removes the table cell border color for list cells */
+    -fx-table-cell-border-color:transparent;
+    -fx-padding: 8px 3px;
+}
+
+/* Styles for the news list view */
+#newsListView{
+    /* Sets the font size for the news list view */
+    -fx-font-size: 13px;
+    -fx-focus-traversable: false;
+    -fx-text-fill: rgb(241, 241, 241);
+}
+    
+/* Styles for list cells on hover */
+.list-view .list-cell:hover {
+    /* Sets the background color for list cells on hover */
+    -fx-background-color: #222525;
+    /* Sets the text color for list cells on hover */
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+}
+
+.bookmark-button{
+    -fx-text-fill: #ffffff;
+    -fx-font-size: larger;
+    -fx-font-weight: bolder;
+    -fx-background-color: transparent;
+
+}
+.bookmark-button:hover {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: larger;
+    -fx-font-weight: bolder;
+    -fx-background-color: transparent;
+}
+
+#sideBar{
+    -fx-background-color:#3f3f3f;
+}
+#menuElements{
+    -fx-text-fill: #e6e6e6;
+    -fx-background-size: 15px;
+    -fx-font-size: 13px;
+}
+#menuElements:hover{
+    -fx-text-fill: #ffffff;
+    -fx-background-color:#2d2e2e;
+    -fx-font-size: 13px;
+    -fx-border-width: 0px 0px 0px 3.5px;
+    -fx-border-style: solid;
+    -fx-border-color: #ffffff;
+}
+#progressBar {
+    /* Remove the inherited background color */
+    -fx-background-color: transparent; 
+    /* Set the desired color for the progress bar */
+    -fx-accent: #ffffff;
+    -fx-color: #ffffff; 
+}
+#refreshButton{
+    -fx-background-color: #525252;
+}
+#refreshButton:hover{
+    -fx-background-color: #696969;
+}
+#maximize, #close, #minimize{
+    -fx-background-color:transparent;
+}
+#maximize:hover, #minimize:hover {
+    -fx-background-color:#454646;
+}
+#close:hover{
+    -fx-background-color: #ff3a4a;
+}
+
+
+
+/* Dark theme styles for ImageView elements */
+
+#sideBarButton {
+    -fx-image: url("WhiteAppIcons/icons8-menu-100.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 20;
+}
+
+/* Minimize button */
+#minimize {
+    -fx-image: url("WhiteAppIcons/icons8-minus-24.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Maximize button */
+#maximize {
+    -fx-image: url("WhiteAppIcons/icons8-square-24.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Close button */
+#close {
+    -fx-image: url("WhiteAppIcons/icons8-close-384.png");
+    -fx-fit-width: 20;
+    -fx-fit-height: 18;
+}
+
+/* Help icon */
+#helpIcon {
+    -fx-image: url("WhiteAppIcons/icons8-help-32.png");
+    -fx-fit-width: 25;
+    -fx-fit-height: 26;
+}
+
+/* Dark mode icon */
+#themeIcon {
+    -fx-image: url("WhiteAppIcons/icons8-light-mode-78.png");
+    -fx-fit-width: 28;
+    -fx-fit-height: 28;
+}
+
+/* Bookmark icon */
+#bookmarkIcon {
+    -fx-image: url("WhiteAppIcons/icons8-bookmark-256.png");
+    -fx-fit-width: 30;
+    -fx-fit-height: 25;
+}
+
+/* Share icon */
+#shareIcon {
+    -fx-image: url("WhiteAppIcons/icons8-share-48.png");
+    -fx-fit-width: 25;
+    -fx-fit-height: 22;
+}
+#reOpenTabs {
+    -fx-image: url("WhiteAppIcons/icons8-tab-96.png");
+    -fx-fit-width: 24;
+    -fx-fit-height: 25;
+}
+/* Newspaper icon */
+#newsPaper {
+    -fx-image: url("WhiteAppIcons/icons8-newspaper-96.png");
+    -fx-fit-width: 35;
+    -fx-fit-height: 35;
+}
+
+/* preferences icon */
+#preferences {
+    -fx-image: url("WhiteAppIcons/image.png");
+    -fx-fit-width: 28;
+    -fx-fit-height: 28;
+}
+
+#titlelabel{
+    -fx-font-size: 13;
+    -fx-background-color: #3b3b3b;
+    -fx-border-width: 1.5px;
+    -fx-border-color: #7e7e7e;
+    -fx-border-radius: 10%;
+    -fx-padding: 1px;
+  }
+
+  /* General article box style */
+.article-box {
+    -fx-background-color: #333; /* Dark background color */
+    -fx-border-color: #444; /* Darker border color */
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 5); /* Slightly stronger shadow */
+}
+
+/* Hover effect for article box */
+.article-box-hover {
+    -fx-background-color: #444; /* Slightly lighter dark background on hover */
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0, 0, 10); /* Stronger shadow on hover */
+}
+
+/* General title label style */
+.title-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #ddd; /* Light text color */
+    -fx-font-size: 13px;
+}
+
+/* Style for head article titles */
+.head-article {
+    -fx-font-size: 15px;
+}
+
+#prefBox{
+    -fx-background-color:#646464;
+    -fx-border-width: 2px;
+    -fx-border-color: -fx-base;
+}
+.preflabels{
+    -fx-background-color: #424242;
+    -fx-text-fill: #ffffff;
+}
