@@ -1,4 +1,4 @@
-# News Aggregator
+# Daily Roundup - News App
 
 A JavaFX application that aggregates news from various sources and displays them in a user-friendly interface.
 
