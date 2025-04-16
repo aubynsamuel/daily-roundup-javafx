@@ -14,7 +14,12 @@ A JavaFX application that aggregates news from various sources and displays them
 
 ## Screenshots
 
-*[Screenshots to be added]*
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 45px;">
+    <img src="screenshots/Application Interface.png" width="200" alt="App UI">
+    <img src="screenshots/Dark Mode.png" width="200" alt="App UI DarkMode">
+    <img src="screenshots/Article Tab.png" width="200" alt="Read New Articles">
+    <img src="screenshots/Bookmarks.png" width="200" alt="BookMarks">
+</div>
 
 ## Getting Started
 
