@@ -1,6 +1,11 @@
+<div align="center"> 
+
 # Daily Roundup - News App
 
+
 A JavaFX application that aggregates news from various sources and displays them in a user-friendly interface.
+
+</div>
 
 ## Features
 
@@ -14,11 +19,11 @@ A JavaFX application that aggregates news from various sources and displays them
 
 ## Screenshots
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 45px;">
-    <img src="screenshots/Application Interface.png" width="200" alt="App UI">
-    <img src="screenshots/Dark Mode.png" width="200" alt="App UI DarkMode">
-    <img src="screenshots/Article Tab.png" width="200" alt="Read New Articles">
-    <img src="screenshots/Bookmarks.png" width="200" alt="BookMarks">
+<div align="center" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 45px;">
+    <img src="screenshots/Application Interface.png" width="400" alt="App UI">
+    <img src="screenshots/Dark Mode.png" width="400" alt="App UI DarkMode">
+    <img src="screenshots/Article Tab.png" width="400" alt="Read New Articles">
+    <img src="screenshots/Bookmarks.png" width="400" alt="BookMarks">
 </div>
 
 ## Getting Started
