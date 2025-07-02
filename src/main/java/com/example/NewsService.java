@@ -117,7 +117,7 @@ public class NewsService {
                         JsonNode root = mapper.readTree(response.getEntity().getContent());
 
                         // Logging response for debugging
-                        logger.debug("API Response: {}", root.toString());
+                        // logger.debug("API Response: {}", root.toString());
 
                         root.path("articles").forEach(article -> {
                             String title = article.path("title").asText();
