@@ -1,7 +1,6 @@
-<div align="center"> 
+<div align="center">
 
 # Daily Roundup - News App
-
 
 A JavaFX application that aggregates news from various sources and displays them in a user-friendly interface.
 
