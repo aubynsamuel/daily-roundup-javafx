@@ -10,8 +10,14 @@
     <properties>
         <java.version>22.0.1</java.version>
         <javafx.version>22.0.1</javafx.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
+        <!-- Dependency versions -->
+        <jfoenix.version>9.0.10</jfoenix.version>
+        <guava.version>31.1-jre</guava.version>
+        <httpclient.version>5.1</httpclient.version>
+        <jackson.version>2.13.3</jackson.version>
+        <logback.version>1.2.6</logback.version>
+        <maven.shade.version>3.2.1</maven.shade.version>
+        <maven.compiler.version>3.8.1</maven.compiler.version>
     </properties>
 
     <repositories>
@@ -22,14 +28,14 @@
     </repositories>
 
     <dependencies>
-        <!-- JFoenix-->
+        <!-- UI Dependencies -->
         <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
-            <version>9.0.10</version>
+            <version>${jfoenix.version}</version>
         </dependency>
 
-        <!--    JavaFX dependencies    -->
+        <!-- JavaFX Dependencies -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -40,54 +46,53 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <!-- WebView Dependency-->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
             <version>${javafx.version}</version>
         </dependency>
 
-        <!-- Guava Dependency for Caching -->
+        <!-- Utility Dependencies -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
+            <version>${guava.version}</version>
         </dependency>
 
-        <!--    HTTP client dependencies    -->
+        <!-- HTTP Client Dependencies -->
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
-            <version>5.1</version>
+            <version>${httpclient.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents.core5</groupId>
             <artifactId>httpcore5</artifactId>
-            <version>5.1</version>
+            <version>${httpclient.version}</version>
         </dependency>
 
-        <!--    Jackson dependencies for JSON processing    -->
+        <!-- JSON Processing Dependencies -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.3</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.13.3</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.13.3</version>
+            <version>${jackson.version}</version>
         </dependency>
 
-        <!--    SLF4J binding for Logback    -->
+        <!-- Logging Dependencies -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.6</version>
+            <version>${logback.version}</version>
         </dependency>
     </dependencies>
 
@@ -96,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>${maven.shade.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
