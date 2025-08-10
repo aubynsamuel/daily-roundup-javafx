@@ -1,4 +1,4 @@
-package com.aubynsamuel;
+package com.aubynsamuel.ui.util;
 
 import javafx.scene.Scene;
 import javafx.scene.control.*;

@@ -1,4 +1,7 @@
-package com.aubynsamuel;
+package com.aubynsamuel.service;
+
+import com.aubynsamuel.ui.controller.NewsAggregatorController;
+import com.aubynsamuel.ui.util.UIHandler;
 
 import java.util.ArrayList;
 import java.util.List;

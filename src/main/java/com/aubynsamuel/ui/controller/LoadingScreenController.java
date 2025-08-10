@@ -1,4 +1,4 @@
-package com.aubynsamuel;
+package com.aubynsamuel.ui.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

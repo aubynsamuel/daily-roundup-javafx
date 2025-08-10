@@ -1,4 +1,4 @@
-package com.aubynsamuel;
+package com.aubynsamuel.ui.util;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;

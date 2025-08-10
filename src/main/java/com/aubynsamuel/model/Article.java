@@ -1,9 +1,11 @@
-package com.aubynsamuel;
+package com.aubynsamuel.model;
 
 import java.io.Serializable;
 
-/**Creates the structure and fields for news articles and also makes them 
- * serializable so that they can be saved and loaded into and from a file*/
+/**
+ * Creates the structure and fields for news articles and also makes them
+ * serializable so that they can be saved and loaded into and from a file
+ */
 public class Article implements Serializable {
 
     private static final long serialVersionUID = 1L;
