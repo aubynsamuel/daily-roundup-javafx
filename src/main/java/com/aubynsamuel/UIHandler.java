@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
@@ -70,12 +70,12 @@ public class UIHandler {
         Scene scene = stage.getScene();
         if (islightTheme) {
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(getClass().getResource("/com/example/dark_theme.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/dark_theme.css").toExternalForm());
             themeStatus.setText("Light Mode");
             islightTheme = false;
         } else {
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(getClass().getResource("/com/example/light_theme.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/light_theme.css").toExternalForm());
             themeStatus.setText("Dark Mode");
             islightTheme = true;
         }
@@ -88,9 +88,11 @@ public class UIHandler {
             ClipboardContent content = new ClipboardContent();
             content.putString(urlToCopy);
             clipboard.setContent(content);
-            alertBuilder("Copied to Clipboard", "You Can Now Share The Article, The URL has been copied to your clipboard 😁");
+            alertBuilder("Copied to Clipboard",
+                    "You Can Now Share The Article, The URL has been copied to your clipboard 😁");
         } else {
-            alertBuilder("Failed To Copy To Clipboard", "No Article Selected, Please Click on an Article Before Pressing The Share Button");
+            alertBuilder("Failed To Copy To Clipboard",
+                    "No Article Selected, Please Click on an Article Before Pressing The Share Button");
         }
     }
 }

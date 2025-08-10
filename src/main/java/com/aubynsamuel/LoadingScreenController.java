@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +21,7 @@ public class LoadingScreenController {
     public void showLoadingScreen(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/loadingScreen.fxml"));
+                    getClass().getResource("/com/aubynsamuel/loadingScreen.fxml"));
             Parent root = loader.load();
             progressBar = (ProgressBar) loader.getNamespace().get("loadingBar");
             label = (Label) loader.getNamespace().get("loadingMessage");

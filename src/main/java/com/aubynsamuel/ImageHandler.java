@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;

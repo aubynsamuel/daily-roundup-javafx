@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,11 +17,11 @@ public class NewsAggregatorApp extends Application {
             LoadingScreenController loadingScreen = new LoadingScreenController();
 
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/NewsAggregatorLayout.fxml"));
+                    getClass().getResource("/com/aubynsamuel/NewsAggregatorLayout.fxml"));
             VBox root = loader.load();
 
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/com/example/light_theme.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/light_theme.css").toExternalForm());
 
             NewsAggregatorController controller = loader.getController();
             controller.setStage(primaryStage);
@@ -31,7 +31,7 @@ public class NewsAggregatorApp extends Application {
             VBoxResizer.apply(primaryStage, root);
 
             primaryStage.initStyle(StageStyle.UNDECORATED);
-            Image icon = new Image("/com/example/daily-roundup-high-resolution-logo.jpeg");
+            Image icon = new Image("/com/aubynsamuel/daily-roundup-high-resolution-logo.jpeg");
             primaryStage.getIcons().add(icon);
             primaryStage.setScene(scene);
 

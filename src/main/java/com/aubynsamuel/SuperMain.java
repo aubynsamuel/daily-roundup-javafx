@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 public class SuperMain {
     public static void main(String[] args) {

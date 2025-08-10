@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import javafx.geometry.Point2D;
 import javafx.scene.Cursor;

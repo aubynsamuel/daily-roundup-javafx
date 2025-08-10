@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import javafx.scene.Scene;
 import javafx.scene.control.*;

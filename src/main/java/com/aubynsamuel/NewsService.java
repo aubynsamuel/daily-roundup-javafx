@@ -1,4 +1,4 @@
-package com.example;
+package com.aubynsamuel;
 
 import java.io.IOException;
 import java.net.URLEncoder;
