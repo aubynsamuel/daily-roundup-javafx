@@ -29,12 +29,7 @@ import com.google.common.cache.CacheBuilder;
  */
 public class NewsService {
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
-
-    private static final String[] API_KEYS = {
-            "e83e808f55ce4c62a8afe1c33d13d28b",
-            "8126ae9100ff429ebec68fbf3fc4cd4d",
-            "3065a421504844f18f7091cafe9c42c7"
-    };
+    String[] API_KEYS = Env.API_KEYS;
     private static int currentKeyIndex = 0;
 
     // URLs for searching and fetching news articles using the News API
