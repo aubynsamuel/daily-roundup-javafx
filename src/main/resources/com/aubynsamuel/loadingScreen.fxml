@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aubynsamuel.LoadingScreenController">
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.aubynsamuel.ui.controller.LoadingScreenController">
         <ImageView fx:id="backgroundPic" fitHeight="681.0" fitWidth="1000.0">
             <image>
                 <Image url="@New%20York%20City.jpg" />

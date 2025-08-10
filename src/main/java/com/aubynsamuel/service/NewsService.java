@@ -1,4 +1,7 @@
-package com.aubynsamuel;
+package com.aubynsamuel.service;
+
+import com.aubynsamuel.model.Article;
+import com.aubynsamuel.Env;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -31,8 +34,6 @@ public class NewsService {
     private static final Logger logger = LoggerFactory.getLogger(NewsService.class);
     String[] API_KEYS = Env.API_KEYS;
     private static int currentKeyIndex = 0;
-
-    // URLs for searching and fetching news articles using the News API
 
     // HTTP client for making requests to the News API
     private final CloseableHttpClient httpClient;

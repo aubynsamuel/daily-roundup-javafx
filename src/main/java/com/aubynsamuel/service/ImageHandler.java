@@ -1,4 +1,4 @@
-package com.aubynsamuel;
+package com.aubynsamuel.service;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -11,7 +11,10 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-/**Loads image using their URLs, stores them in cache and clears them after a certain time period */
+/**
+ * Loads image using their URLs, stores them in cache and clears them after a
+ * certain time period
+ */
 public class ImageHandler {
     private static final Map<String, CachedImage> imageCache = new ConcurrentHashMap<>();
     private static final long CACHE_EXPIRATION_TIME = 1800000; // 30 minutes in milliseconds
@@ -33,7 +36,7 @@ public class ImageHandler {
         }
     }
 
-    public static void loadImageAsync(ImageView imageView, String imageUrl, double width, double height) {
+    public void loadImageAsync(ImageView imageView, String imageUrl, double width, double height) {
 
         if (imageUrl != null && !imageUrl.isEmpty()) {
             // Check if the image is already in the cache and loads the image asynchronously

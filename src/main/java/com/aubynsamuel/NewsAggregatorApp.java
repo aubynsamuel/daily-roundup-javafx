@@ -1,5 +1,8 @@
 package com.aubynsamuel;
 
+import com.aubynsamuel.ui.controller.LoadingScreenController;
+import com.aubynsamuel.ui.controller.NewsAggregatorController;
+import com.aubynsamuel.ui.util.VBoxResizer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
