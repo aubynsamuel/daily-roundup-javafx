@@ -35,6 +35,15 @@ A JavaFX application that aggregates news from various sources and displays them
 ### Running the Application
 
 1. Clone the repository
+
+Replace
+
+``` 
+String[] API_KEYS = Env.API_KEYS;
+```
+
+in NewsService class with your actual API keys from newsapi.com
+
 2. Build the project with your preferred Java IDE or build tool
 3. Run the application
 
