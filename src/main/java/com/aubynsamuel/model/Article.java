@@ -60,11 +60,11 @@ public class Article implements Serializable {
         this.urlToImage = urlToImage;
     }
 
-    public String getpublishedAt() {
+    public String getPublishedAt() {
         return publishedAt;
     }
 
-    public void setpublishedAt(String publishedAt) {
+    public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
     }
 

@@ -6,8 +6,9 @@ import com.aubynsamuel.service.ImageHandler;
 import com.aubynsamuel.service.NewsHandler;
 import com.aubynsamuel.service.PreferencesHandler;
 import com.aubynsamuel.ui.util.UIHandler;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+
 import javafx.animation.PauseTransition;
 import javafx.collections.ListChangeListener;
 import javafx.concurrent.Worker;
@@ -24,14 +25,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import java.util.LinkedHashMap;
+
 import java.util.stream.Collectors;
 import java.util.concurrent.CompletableFuture;
 import javafx.application.Platform;
 import javafx.scene.text.TextAlignment;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.TreeSet;
 
 public class NewsAggregatorController {
     @FXML
@@ -79,17 +77,13 @@ public class NewsAggregatorController {
     public void setStage(Stage stage) {
         this.stage = stage;
         this.uiHandler = new UIHandler(stage);
-        stage.setOnHidden(event -> {
-            bookmarkHandler.saveBookmarksToFile();
-        });
-        stage.setOnCloseRequest(event -> {
-            bookmarkHandler.saveBookmarksToFile();
-        });
+        stage.setOnHidden(event -> bookmarkHandler.saveBookmarksToFile());
+        stage.setOnCloseRequest(event -> bookmarkHandler.saveBookmarksToFile());
     }
 
     List<Article> originalArticles;
     Article currentArticle;
-    private List<Tab> closedTabs = new ArrayList<>();
+    private final List<Tab> closedTabs = new ArrayList<>();
     private final PauseTransition pause = new PauseTransition(Duration.seconds(2));
     private final List<TextField> keywordFields = new ArrayList<>();
 
@@ -172,9 +166,8 @@ public class NewsAggregatorController {
         });
 
         updateNavigationButtonsVisibility(false);
-        tabPane.getSelectionModel().selectedItemProperty().addListener((obs, oldTab, newTab) -> {
-            updateNavigationButtonsVisibility(newTab == articleTab);
-        });
+        tabPane.getSelectionModel().selectedItemProperty().addListener((obs, oldTab, newTab)
+                -> updateNavigationButtonsVisibility(newTab == articleTab));
 
         bookmarksTab.setOnSelectionChanged(event -> {
             if (bookmarksTab.isSelected()) {
@@ -331,28 +324,26 @@ public class NewsAggregatorController {
     private void refreshNews() {
         statusLabel.setText("Fetching news...");
         progressBar.setVisible(true);
-        newsHandler.refreshNews().thenAccept(articles -> {
-            Platform.runLater(() -> {
-                articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty()
-                        || article.getUrlToImage() == null || article.getUrlToImage().isEmpty());
-                if (articles.isEmpty()) {
-                    statusLabel.setText("No articles fetched. Check your internet connection.");
-                } else {
-                    statusLabel.setText("");
-                }
-                progressBar.setVisible(false);
-                originalArticles = articles;
-                newsListView.getItems().setAll(articles);
-                homeTab.setContent(createPage("", "", true));
-                loadOtherTabsOnSelection(localTab, "", "ghana");
-                loadOtherTabsOnSelection(businessTab, "business", "");
-                loadOtherTabsOnSelection(technologyTab, "technology", "");
-                loadOtherTabsOnSelection(entertainmentTab, "entertainment", "");
-                loadOtherTabsOnSelection(sportsTab, "sports", "");
-                loadOtherTabsOnSelection(healthTab, "health", "");
-                loadOtherTabsOnSelection(scienceTab, "science", "");
-            });
-        }).exceptionally(ex -> {
+        newsHandler.refreshNews().thenAccept(articles -> Platform.runLater(() -> {
+            articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty()
+                    || article.getUrlToImage() == null || article.getUrlToImage().isEmpty());
+            if (articles.isEmpty()) {
+                statusLabel.setText("No articles fetched. Check your internet connection.");
+            } else {
+                statusLabel.setText("");
+            }
+            progressBar.setVisible(false);
+            originalArticles = articles;
+            newsListView.getItems().setAll(articles);
+            homeTab.setContent(createPage("", "", true));
+            loadOtherTabsOnSelection(localTab, "", "ghana");
+            loadOtherTabsOnSelection(businessTab, "business", "");
+            loadOtherTabsOnSelection(technologyTab, "technology", "");
+            loadOtherTabsOnSelection(entertainmentTab, "entertainment", "");
+            loadOtherTabsOnSelection(sportsTab, "sports", "");
+            loadOtherTabsOnSelection(healthTab, "health", "");
+            loadOtherTabsOnSelection(scienceTab, "science", "");
+        })).exceptionally(ex -> {
             Platform.runLater(
                     () -> statusLabel.setText("No internet connection. Please connect to the internet and refresh"));
             progressBar.setVisible(false);
@@ -363,18 +354,16 @@ public class NewsAggregatorController {
     private void searchNews(String query) {
         statusLabel.setText("Searching news...");
         progressBar.setVisible(true);
-        newsHandler.searchNews(query).thenAccept(articles -> {
-            Platform.runLater(() -> {
-                articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty());
-                if (articles.isEmpty()) {
-                    statusLabel.setText("No articles found for your search query.");
-                } else {
-                    statusLabel.setText("");
-                }
-                progressBar.setVisible(false);
-                newsListView.getItems().setAll(articles);
-            });
-        }).exceptionally(ex -> {
+        newsHandler.searchNews(query).thenAccept(articles -> Platform.runLater(() -> {
+            articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty());
+            if (articles.isEmpty()) {
+                statusLabel.setText("No articles found for your search query.");
+            } else {
+                statusLabel.setText("");
+            }
+            progressBar.setVisible(false);
+            newsListView.getItems().setAll(articles);
+        })).exceptionally(ex -> {
             Platform.runLater(
                     () -> statusLabel.setText("No internet connection. Please connect to the internet and try again"));
             progressBar.setVisible(false);
@@ -413,29 +402,27 @@ public class NewsAggregatorController {
     private void loadPage(GridPane gridPane, int retries, String category, String keywords, boolean isHome) {
         CompletableFuture<List<Article>> fetchNewsTask;
         if (isHome) {
-            fetchNewsTask = keywords.equals("") ? newsHandler.fetchNews(category, keywords)
+            fetchNewsTask = keywords.isEmpty() ? newsHandler.fetchNews(category, keywords)
                     : newsHandler.searchNews(keywords);
-            statusLabel.setText("Fectching News");
+            statusLabel.setText("Fetching News");
         } else {
-            fetchNewsTask = keywords.equals("") ? newsHandler.fetchNews(category, keywords)
+            fetchNewsTask = keywords.isEmpty() ? newsHandler.fetchNews(category, keywords)
                     : newsHandler.searchNews(keywords);
             statusLabel.setText("Loading " + category + " news");
         }
         progressBar.setVisible(true);
 
-        fetchNewsTask.thenAccept(articles -> {
-            Platform.runLater(() -> {
-                articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty()
-                        || article.getUrlToImage() == null || article.getUrlToImage().isEmpty());
-                if (articles.isEmpty()) {
-                    statusLabel.setText("No articles fetched. Check your internet connection.");
-                } else {
-                    statusLabel.setText("");
-                }
-                progressBar.setVisible(false);
-                populateGrid(gridPane, articles, isHome);
-            });
-        }).exceptionally(ex -> {
+        fetchNewsTask.thenAccept(articles -> Platform.runLater(() -> {
+            articles.removeIf(article -> article == null || article.getUrl() == null || article.getUrl().isEmpty()
+                    || article.getUrlToImage() == null || article.getUrlToImage().isEmpty());
+            if (articles.isEmpty()) {
+                statusLabel.setText("No articles fetched. Check your internet connection.");
+            } else {
+                statusLabel.setText("");
+            }
+            progressBar.setVisible(false);
+            populateGrid(gridPane, articles, isHome);
+        })).exceptionally(ex -> {
             if (retries < 3) {
                 Platform.runLater(() -> {
                     statusLabel.setText("Retrying... (" + (retries + 1) + "/" + 3 + ")");
@@ -559,16 +546,15 @@ public class NewsAggregatorController {
                                 return Collections.<Article>emptyList();
                             }
                         })
-                        .flatMap(list -> list.stream())
-                        .filter(obj -> obj instanceof Article)
-                        .map(obj -> (Article) obj)
+                        .flatMap(Collection::stream)
+                        .filter(Objects::nonNull)
                         .collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Article::getUrl)))))
                 .thenAccept(uniqueCombinedArticles -> {
                     List<Article> sortedFilteredArticles = uniqueCombinedArticles.stream()
                             .filter(article -> article != null && article.getUrl() != null
                                     && !article.getUrl().isEmpty()
                                     && article.getUrlToImage() != null && !article.getUrlToImage().isEmpty())
-                            .sorted((a, b) -> b.getpublishedAt().compareTo(a.getpublishedAt()))
+                            .sorted((a, b) -> b.getPublishedAt().compareTo(a.getPublishedAt()))
                             .collect(Collectors.toList());
 
                     Platform.runLater(() -> {

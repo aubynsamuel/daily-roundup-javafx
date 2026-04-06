@@ -13,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.util.Objects;
+
 public class NewsAggregatorApp extends Application {
     @Override
     public void start(Stage primaryStage) {
@@ -24,7 +26,7 @@ public class NewsAggregatorApp extends Application {
             VBox root = loader.load();
 
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/light_theme.css").toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/aubynsamuel/light_theme.css")).toExternalForm());
 
             NewsAggregatorController controller = loader.getController();
             controller.setStage(primaryStage);

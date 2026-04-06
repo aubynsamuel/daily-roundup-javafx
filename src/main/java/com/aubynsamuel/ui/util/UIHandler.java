@@ -12,6 +12,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.web.WebView;
 
+import java.util.Objects;
+
 public class UIHandler {
     private boolean islightTheme = true;
     private final Stage stage;
@@ -59,23 +61,19 @@ public class UIHandler {
     }
 
     public void maximizeButton() {
-        if (stage.isMaximized()) {
-            stage.setMaximized(false);
-        } else {
-            stage.setMaximized(true);
-        }
+        stage.setMaximized(!stage.isMaximized());
     }
 
     public void switchThemes(Label themeStatus) {
         Scene scene = stage.getScene();
         if (islightTheme) {
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/dark_theme.css").toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/aubynsamuel/dark_theme.css")).toExternalForm());
             themeStatus.setText("Light Mode");
             islightTheme = false;
         } else {
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(getClass().getResource("/com/aubynsamuel/light_theme.css").toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/aubynsamuel/light_theme.css")).toExternalForm());
             themeStatus.setText("Dark Mode");
             islightTheme = true;
         }
@@ -88,11 +86,9 @@ public class UIHandler {
             ClipboardContent content = new ClipboardContent();
             content.putString(urlToCopy);
             clipboard.setContent(content);
-            alertBuilder("Copied to Clipboard",
-                    "You Can Now Share The Article, The URL has been copied to your clipboard 😁");
+            alertBuilder("Copied to Clipboard", "You Can Now Share The Article, The URL has been copied to your clipboard 😁");
         } else {
-            alertBuilder("Failed To Copy To Clipboard",
-                    "No Article Selected, Please Click on an Article Before Pressing The Share Button");
+            alertBuilder("Failed To Copy To Clipboard", "No Article Selected, Please Click on an Article Before Pressing The Share Button");
         }
     }
 }
